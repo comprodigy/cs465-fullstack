@@ -9,9 +9,13 @@ var usersRouter = require('./app_server/routes/users');
 
 //Pages
 var travelRouter = require('./app_server/routes/travel');
+var apiRouter = require('./app_api/routes/index');
 
 //Handlebars
 var handlebars = require('hbs');
+
+//Connect to the DB
+require('./app_api/models/db');
 
 var app = express();
 
@@ -30,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api', apiRouter);
 //Pages
 app.use('/travel', travelRouter);
 
