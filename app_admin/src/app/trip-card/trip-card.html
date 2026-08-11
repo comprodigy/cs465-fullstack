@@ -1,0 +1,17 @@
+<div class="card" style="width: 16rem">
+  <img [src]="'http://localhost:3000/images/' + trip?.image"
+       class="card-img-top"
+       [alt]="trip?.name">
+
+  <div class="card-body">
+    <h5 class="card-title">{{ trip?.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ trip?.resort }}</h6>
+    <p class="card-text">
+      {{ trip?.length }} — {{ trip?.perPerson | currency:'USD' }} per person
+    </p>
+    <p class="card-text" [innerHTML]="trip?.description"></p>
+    <div>
+      <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
+    </div>
+  </div>
+</div>
